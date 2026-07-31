@@ -1,0 +1,18 @@
+{
+  "name": "infrai-streaming-chat",
+  "version": "1.0.0",
+  "description": "Stream chat completions con SSE usando Infrai",
+  "main": "src/stream.ts",
+  "scripts": {
+    "start": "tsx src/stream.ts"
+  },
+  "dependencies": {
+    "openai": "^4.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  },
+  "license": "MIT"
+}
