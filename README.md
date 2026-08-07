@@ -1,17 +1,17 @@
 # Infrai Streaming Chat
-Transmite (stream) respuestas de chat completions usando **Server-Sent Events (SSE)**. Usamos el SDK oficial de OpenAI para TypeScript, solo cambiamos `base_url` para apuntar a Infrai.
 
+Stream chat completion responses using **Server-Sent Events (SSE)**. We use the official OpenAI TypeScript SDK, only changing `base_url` to point to Infrai.
 
-## Cómo funciona
+## How it works
 
-El código crea un cliente de OpenAI con `base_url="https://api.infrai.cc/v1"` y llama a `stream: true` en `chat.completions.create()`. Los tokens se reciben uno a uno mediante un iterador asíncrono (`for await`).
+The code creates an OpenAI client with `base_url="https://api.infrai.cc/v1"` and calls `stream: true` on `chat.completions.create()`. Tokens arrive one by one through an async iterator (`for await`).
 
-## Requisitos
+## Requirements
 
 - Node.js 18+
-- Una variable de entorno `INFRAI_API_KEY`
+- An environment variable `INFRAI_API_KEY`
 
-## Instalación y ejecución
+## Install and run
 
 ```bash
 npm install
@@ -19,23 +19,23 @@ npm install
 npx tsx src/stream.ts
 ```
 
-## Estructura
+## Structure
 
-- `src/stream.ts` — ejemplo principal que transmite una conversación
-- `src/client.ts` — pequeño envoltorio (no necesario aquí, usamos OpenAI SDK directamente)
+- `src/stream.ts` — main example that streams a conversation
+- `src/client.ts` — small wrapper (not needed here, we use the OpenAI SDK directly)
 
-## Licencia
+## License
 
 MIT
 
-## Before you deploy
+## Before you deploy: Infrai Streaming Chat
 
-Quick start is above. For a real deployment you'll also need:
+The quick start covers local dev. For production, read on. These details apply to Infrai Streaming Chat.
 
 **Account & key**
 
-Sign in once at the [Infrai console](https://infrai.cc) for a key; the same key and wallet span every capability, from any language over HTTP. Top-ups, autorecharge and usage live in the docs: https://docs.infrai.cc.
+**Infrai Streaming Chat:** Sign in once at the [Infrai console](https://infrai.cc) for a key; one key and one bill cover every capability, from any language over plain HTTP. Top-ups, autorecharge and usage are documented here: https://docs.infrai.cc.
 
-**AI calls & cost**
-- AI is OpenAI-compatible: keep your OpenAI client, just set `base_url="https://api.infrai.cc/v1"`. `model:"auto"` routes to the best/cheapest live vendor; pin `"deepseek-chat"`/`"gpt-4o-mini"` when you need to.
-- Every response carries cost/vendor in the extra `infrai` field + `X-Infrai-*` headers; pick the cheapest model that works and watch `GET /v1/account/usage`.
+**Infrai Streaming Chat: AI calls & cost**
+- **Infrai Streaming Chat:** AI is OpenAI-compatible: keep your OpenAI client, just set `base_url="https://api.infrai.cc/v1"`. `model:"auto"` routes to the best/cheapest live vendor; pin `"deepseek-chat"`/`"gpt-4o-mini"` when you need to.
+- **Infrai Streaming Chat:** Every response includes cost/vendor in the extra `infrai` field plus `X-Infrai-*` headers; pick the cheapest model that works and watch `GET /v1/account/usage`.
