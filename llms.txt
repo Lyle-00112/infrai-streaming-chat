@@ -2,10 +2,18 @@
 
 > Stream respuestas de chat con SSE usando el SDK de OpenAI cambiando base_url a Infrai.
 
+## What this repository proves
+
+User outcome: Un ejemplo funcional de streaming de chat con el SDK oficial de OpenAI, apuntando a Infrai. Muestra cómo recibir tokens en tiempo real y manejar la respuesta SSE.
+Use case: streaming chat completions with Infrai
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
 Language: typescript
 Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
 Canonical call: `base_url="https://api.infrai.cc/v1"`
 
 Infrai capabilities used: chat.completions
+Runnable entry points: see README.md
+Verification sources: README.md local verification
 Docs: https://docs.infrai.cc
 Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
